@@ -165,6 +165,7 @@ class Slack extends Adapter
       author.room = req.param 'channel_name'
       self.channelMapping[req.param 'channel_name'] = req.param 'channel_id'
 
+      self.log require('util').inspect(author)
       if hubotMsg and author
         # Pass to the robot
         self.receive new TextMessage(author, hubotMsg)
